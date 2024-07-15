@@ -11,16 +11,8 @@
     <script src="slider.js"></script>
 </head>
 
-<style>
-
-
-
-</style>
 <body>
     <div class="main-flexbox">
-
-        
-
         <div class="sidenav-container">
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -60,8 +52,6 @@
             </div>
             <span class="new-expense" onclick="openNav()">+ New Expense</span>
         </div>
-        
-
         <div class="main-display">
             <select name="list_select" id="list_select" onchange="selectedList(event)">
                 <option value="#list1" selected>List 1</option>
@@ -71,7 +61,7 @@
             <div class="main-container">
                 <div class="list-container" id="list1-container">
                     <div id="list1" class="slider-list">
-                        <div style="display: flex; flex-direction: column; margin-left: 40px; margin-top: 30px;">
+                        <div class="expense-legend">
                             <h2>EXPENSES</h2>
                             <ul id="list1_legend" class="slider__legend">
                             </ul>
@@ -82,9 +72,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="list-container" id="list2-container" style="display:none;">
+                <div class="list-container" id="list2-container">
                     <div id="list2" class="slider-list">
-                        <div style="display: flex; flex-direction: column; margin-left: 40px; margin-top: 30px;">
+                        <div class="expense-legend">
                             <h2>EXPENSES</h2>
                             <ul id="list2_legend" class="slider__legend">
                             </ul>
@@ -97,30 +87,12 @@
                 </div>   
             </div>
         </div>
-        
-
-
     </div>
-   
-    
-
-
-
 </body>
-<script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-      document.querySelectorAll('.input-container').forEach(e => e.style.opacity = "1")
-    }
-    
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      document.querySelectorAll('.input-container').forEach(e => e.style.opacity = "0")
-    }
-</script>
+
 <script>
 
-
+// Simulates database
 const initSliders = [
                 {
                     expenseName: "TRANSPORT",

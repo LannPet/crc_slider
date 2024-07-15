@@ -6,6 +6,8 @@ body {
     font-family: 'Roboto';
     font-weight: 200;
     display: flex;
+    /* Remove scroll bar */
+    overflow: hidden;  
 }
 
 .main-flexbox{
@@ -14,10 +16,109 @@ body {
 }
 
 
-.list-container h1{
+
+/* SIDE NAVIGATION STYLES */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+  
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: -11px;
+    right: 5px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/* MAIN DISPLAY STYLES */
+
+.main-display{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* LIST SELECT STYLES */
+
+#list_select{
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    border: none;
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    height: 60px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    width: 200px;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 200;
+    letter-spacing: 3px;
+    background-color: rgba(194, 210, 205, 0.3); 
+    border-radius: 20px;
+    backdrop-filter: blur(200px);
+}
+
+/* MAIN CONTAINER (slider list, expense list, Sliders) */
+
+.main-container{
+    /* background-color: rgba(194, 210, 205, 0.3);  */
+    border-radius: 30px;
+    /* backdrop-filter: blur(200px); */
+    background: rgba(255, 255, 255, 0.27);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.5px);
+    -webkit-backdrop-filter: blur(9.5px);
+}
+
+/* slider ist */
+.slider-list{
+    width: 1180px; 
+    height: 600px; 
+}
+
+/* expense list */
+
+.expense-legend{
+    display: flex; 
+    flex-direction: column; 
+    margin-left: 40px; 
+    margin-top: 30px;
+}
+
+.list-container h2{
     font-family: 'Roboto';
     font-weight: 400;
-    font-size: 3rem;
+    font-size: 2.2rem;
 }
 
 #list1 {
@@ -32,73 +133,22 @@ body {
     justify-content: flex-start;
 }
 
-#list1-container{
-
-}
 
 #list2-container{
     display: none;
 }
 
-.slider-list{
-    width: 1180px; 
-    height: 600px; 
-}
+
 
 .slider__data{       
     margin-left: auto;
 }
 
-.main-container{
-    background-color: rgba(194, 210, 205, 0.3); 
-    border-radius: 30px;
-    backdrop-filter: blur(200px);
-}
 
-.main-display{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-  }
-  
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  .sidenav .closebtn {
-    position: absolute;
-    top: -11px;
-    right: 5px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+
+
+
 
   .new-expense{
     font-size:20px;
@@ -147,26 +197,7 @@ select{
     width: 225px;
 }
 
-#list_select{
-    margin-bottom: 1rem;
-    border-radius: 20px;
-    border: none;
-    font-size: 2rem;
-    color: rgb(0, 0, 0);
-    height: 60px;
-    appearance: none;
-    transition: border 0.15s ease 0s;
-    width: 200px;
-    cursor: pointer;
-    /* position: absolute; */
-    text-align: center;
-    font-family: 'Roboto';
-    font-weight: 200;
-    letter-spacing: 3px;
-    background-color: rgba(194, 210, 205, 0.3); 
-    border-radius: 20px;
-    backdrop-filter: blur(200px);
-}
+
 
 button{
     background: rgb(31, 32, 35);

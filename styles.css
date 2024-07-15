@@ -1,0 +1,249 @@
+body {
+    background-image: linear-gradient(to right bottom, #86a8e7, #86a8e7, #86a8e7, #86a8e7, #86a8e7, #7caeec, #70b4f1, #64baf4, #46c7f7, #28d3f4, #24ddec, #41e7df);
+    height: 100vh; 
+    margin: 0;
+    padding: 20px 20px; 
+    font-family: 'Roboto';
+    font-weight: 200;
+    display: flex;
+}
+
+.main-flexbox{
+    display: flex;
+    gap: 12rem;
+}
+
+
+.list-container h1{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+#list1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+#list2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+#list1-container{
+
+}
+
+#list2-container{
+    display: none;
+}
+
+.slider-list{
+    width: 1180px; 
+    height: 600px; 
+}
+
+.slider__data{       
+    margin-left: auto;
+}
+
+.main-container{
+    background-color: rgba(194, 210, 205, 0.3); 
+    border-radius: 30px;
+    backdrop-filter: blur(200px);
+}
+
+.main-display{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: -11px;
+    right: 5px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .new-expense{
+    font-size:20px;
+    cursor:pointer;
+    transition: 200ms;
+    letter-spacing:8px;
+  }
+
+  .new-expense:hover{
+    font-size: 21px;
+    box-shadow: #111;
+  }
+
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+
+input{
+    padding: 6px 12px;
+    background: rgb(31, 32, 35);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 13px;
+    color: rgb(247, 248, 248);
+    height: 20px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    width: 200px;
+}
+
+select{
+    padding: 6px 12px;
+    background: rgb(31, 32, 35);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 13px;
+    color: rgb(108, 108, 108);
+    height: 30px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    width: 225px;
+}
+
+#list_select{
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    border: none;
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    height: 60px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    width: 200px;
+    cursor: pointer;
+    /* position: absolute; */
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 200;
+    letter-spacing: 3px;
+    background-color: rgba(194, 210, 205, 0.3); 
+    border-radius: 20px;
+    backdrop-filter: blur(200px);
+}
+
+button{
+    background: rgb(31, 32, 35);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 13px;
+    color: rgb(162, 162, 162);
+    height: 20px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+}
+button:hover{
+    border: 1px solid cyan;
+}
+button:active{
+    transform: translateY(2px);
+}
+  
+input:focus{
+      outline: none;
+      box-shadow: none;
+      border-color: rgb(100, 153, 255);
+  }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.input-container{
+    opacity: 0;
+    transition: 1s;
+}
+
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    letter-spacing: 3px;
+    color: rgb(63, 63, 63);
+}
+
+
+ul{
+    padding: 0;
+}
+
+li{
+    font-family: sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(63, 63, 63);
+    list-style: none;
+}
+
+.exp_box{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(0, 17, 255);
+    border-radius: 4px;
+}
+
+
+.exp_list{
+    display: flex;
+    gap: 1.8rem;
+    font-size: 2rem;
+    align-items: baseline;
+}
+
+.delete_btn{
+    margin-left: auto;
+    color: rgb(104, 104, 104);
+    font-weight: 900;
+    cursor: pointer;
+}
+

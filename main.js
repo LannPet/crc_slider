@@ -1,0 +1,96 @@
+// For testing only
+
+let allSliders = [
+]
+
+
+function generateSliderId(){
+    const id = Math.random().toString(16).slice(2);
+    
+    return id
+}
+
+
+function deleteSlider(sliderId){
+    console.log("SLIDER ID", sliderId)
+
+    let sliderGroup = document.querySelectorAll(`[slider_id="${sliderId}"]`)
+
+    sliderGroup.forEach(s => {
+        s.remove();
+    })
+
+
+}
+
+function resetForm(){
+    document.getElementById('sliderForm').reset();
+}
+
+function evalSettings(opt){
+
+    return true;
+}
+
+function handleName(name){
+    if(typeof name == "string") return name.trim().toUpperCase()
+}
+
+function buildSlider(opt){
+    const slider = new Slider(opt)
+    slider.draw()
+    allSliders.push(opt);
+}
+
+function getSliderSettings(e){
+    e.preventDefault()
+    let sliderOptions = {}
+
+    sliderOptions = {
+        expenseName: handleName(e.target.exp_name.value),
+        color: e.target.exp_color.value,
+        min: parseInt(e.target.exp_min.value),
+        max: parseInt(e.target.exp_max.value),
+        step: parseInt(e.target.exp_step.value),
+        radius: parseInt(e.target.exp_rad.value),
+        list: e.target.exp_cont.value,
+        s_id: generateSliderId()       
+    };
+
+
+    console.log("Slider options", sliderOptions)
+
+    if(evalSettings(sliderOptions)){
+        buildSlider(sliderOptions);
+        resetForm();
+        return;
+    }
+
+
+}
+
+
+
+function selectedList(e){
+    let selectedList = document.querySelector("#list_select").value;
+    let list1 = document.querySelector('#list1-container');
+    let list2 = document.querySelector('#list2-container');
+    let mainContainer = document.querySelector('.main-container');
+
+
+
+    if (selectedList == "#list1") {
+        list1.style.display = "block";
+        list2.style.display = "none";
+        mainContainer.insertBefore(list1, list2);
+    } else if (selectedList == "#list2") {
+        list1.style.display = "none";
+        list2.style.display = "block";
+        mainContainer.insertBefore(list2, list1);
+    }
+
+}
+
+window.addEventListener("DOMContentLoaded", ()=>{
+    initSliders.forEach(opt => buildSlider(opt));
+})

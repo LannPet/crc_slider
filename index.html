@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Sliders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="slider.js"></script>
+</head>
+
+<style>
+
+
+
+</style>
+<body>
+    <div class="main-flexbox">
+
+        
+
+        <div class="sidenav-container">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="form-container">
+                    <form action="" class="form-container" id="sliderForm" onsubmit="getSliderSettings(event)">
+                        <div class="input-container">
+                            <input type="text" name="exp_name" id="exp_name" placeholder="Expense Name" required>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" name="exp_color" id="exp_color" placeholder="Color">
+                        </div>
+                        <div class="input-container">
+                            <input type="number" name="exp_min" id="exp_min" placeholder="Min" >
+                        </div>
+                        <div class="input-container">
+                            <input type="number" name="exp_max" id="exp_max" placeholder="Max">
+                        </div>
+                        <div class="input-container">
+                            <input type="number" name="exp_step" id="exp_step" placeholder="Step">
+                        </div>
+                        <div class="input-container">
+                            <input type="number" name="exp_rad" id="exp_rad" placeholder="Radius">
+                        </div>
+                        <div class="input-container">
+                            <select name="exp_cont" id="exp_cont" required>
+                                <option value="" selected disabled hidden>Choose Expense List</option>
+                                <option value="#list1_svg">List 1</option>
+                                <option value="#list2_svg">List 2</option>
+                            </select>
+                        </div>
+                        <div class="input-container">
+                            <button>Add Expense</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            <span class="new-expense" onclick="openNav()">+ New Expense</span>
+        </div>
+        
+
+        <div class="main-display">
+            <select name="list_select" id="list_select" onchange="selectedList(event)">
+                <option value="#list1" selected>List 1</option>
+                <option value="#list2">List 2</option>
+            </select>
+
+            <div class="main-container">
+                <div class="list-container" id="list1-container">
+                    <div id="list1" class="slider-list">
+                        <div style="display: flex; flex-direction: column; margin-left: 40px; margin-top: 30px;">
+                            <h2>EXPENSES</h2>
+                            <ul id="list1_legend" class="slider__legend">
+                            </ul>
+                        </div>
+                        <div id="list1_data" class="slider__data">
+                            <svg id="list1_svg" height="600" width="700">
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-container" id="list2-container" style="display:none;">
+                    <div id="list2" class="slider-list">
+                        <div style="display: flex; flex-direction: column; margin-left: 40px; margin-top: 30px;">
+                            <h2>EXPENSES</h2>
+                            <ul id="list2_legend" class="slider__legend">
+                            </ul>
+                        </div>
+                        <div id="list2_data" class="slider__data">
+                            <svg id="list2_svg" height="600" width="700">
+                            </svg>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+        
+
+
+    </div>
+   
+    
+
+
+
+</body>
+<script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.querySelectorAll('.input-container').forEach(e => e.style.opacity = "1")
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.querySelectorAll('.input-container').forEach(e => e.style.opacity = "0")
+    }
+</script>
+<script>
+
+
+const initSliders = [
+                {
+                    expenseName: "TRANSPORT",
+                    color: "blue",
+                    min: 0,
+                    max: 200,
+                    step: 10,
+                    radius: 250,
+                    list: "#list1_svg",
+                    s_id: "c66aaf609294"
+
+                },
+                {
+                    expenseName: "FOOD",
+                    color: "red",
+                    min: 0,
+                    max: 200,
+                    step: 10,
+                    radius: 120,
+                    list: "#list1_svg",
+                    s_id: "2c66aaf609294"
+                },
+                {
+                    expenseName: "MOVIES",
+                    color: "green",
+                    min: 0,
+                    max: 200,
+                    step: 10,
+                    radius: 120,
+                    list: "#list2_svg",
+                    s_id: "09c82b6b88242"
+                },
+                {
+                    expenseName: "CLOTHES",
+                    color: "yellow",
+                    min: 0,
+                    max: 200,
+                    step: 10,
+                    radius: 200,
+                    list: "#list2_svg",
+                    s_id: "787902bbaf23e"
+                },
+
+            ];
+
+</script>
+<script src="main.js"></script>
+</html>

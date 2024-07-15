@@ -2,8 +2,7 @@ This app was created for a technical interview assignment. The main objective wa
 
 NOTE: THIS APP IS NOT A FINISHED PRODUCT; THEREFORE, BUGS AND ERRORS MAY BE PRESENT.
 
-The app is used to display different expenses that the user can input them via expense input form. Expenses are shown on the right hand side. Each expense has its own color and name and a corresponding circular slider, 
-that can be used to increase or decrese the expense value.
+The app allows users to input and display various expenses through an expense input form. Expenses are displayed on the right-hand side of the interface. Each expense has a unique color and name, accompanied by a circular slider that can be used to adjust the expense value.
 
 HOW TO USE:
 

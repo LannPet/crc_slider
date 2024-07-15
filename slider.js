@@ -10,10 +10,10 @@ class Slider {
         this.cy = this.sliderHeight / 2;                            // Slider center Y coordinate
         this.tau = 2 * Math.PI;                                     // Tau constant
         this.options = options;                                     // Sliders array with opts for each slider
-        this.arcFractionSpacing = 0.85;                             // Spacing between arc fractions
+        this.arcFractionSpacing = 0.65;                             // Spacing between arc fractions
         this.arcFractionLength = 10;                                // Arc fraction length
         this.arcFractionThickness = 30;                             // Arc fraction thickness
-        this.arcBgFractionColor = '#CFCFCF';                        // Arc fraction color for background slider
+        this.arcBgFractionColor = 'rgb(200,200,200)';               // Arc fraction color for background slider
         this.handleFillColor = '#fff';                              // Slider handle fill color
         this.handleStrokeColor = 'silver';                          // Slider handle stroke color
         this.handleStrokeThickness = 2;                             // Slider handle stroke thickness    
@@ -23,13 +23,13 @@ class Slider {
     }
 
     /**
-     * Draw sliders on init
+     * Generate sliders on init
      * 
      */
-    draw() {
+    init() {
 
         // Create legend UI
-        this.createLegendUI(this.options.expenseName,this.options.list,this.options.color, this.sliderId);
+        this.createLegendUI(this.options.expenseName,this.options.list,this.options.color, this.sliderId, this.options.initialValue);
 
         const svgContainer = document.querySelector(this.options.list) // Choose the correct list
         this.drawSingleSliderOnInit(svgContainer, this.options, this.sliderId)
@@ -78,10 +78,10 @@ class Slider {
         svg.appendChild(sliderGroup);
         
         // Draw background arc path
-        this.drawArcPath(this.arcBgFractionColor, slider.radius, 360, arcFractionSpacing, 'bg', sliderGroup);
+        this.drawArcPath(this.arcBgFractionColor, slider.radius, 360, arcFractionSpacing, 'bg', sliderGroup, 1, 1);
 
         // Draw active arc path
-        this.drawArcPath(slider.color, slider.radius, initialAngle, arcFractionSpacing, 'active', sliderGroup);
+        this.drawArcPath(slider.color, slider.radius, initialAngle, arcFractionSpacing, 'active', sliderGroup, 0.6, 0);
 
         // Draw handle
         this.drawHandle(slider, initialAngle, sliderGroup);
@@ -97,7 +97,7 @@ class Slider {
      * @param {number} singleSpacing 
      * @param {string} type 
      */
-    drawArcPath( color, radius, angle, singleSpacing, type, group ) {
+    drawArcPath( color, radius, angle, singleSpacing, type, group, opacity, dash ) {
 
         // Slider path class
         const pathClass = (type === 'active') ? 'sliderSinglePathActive' : 'sliderSinglePath';
@@ -107,9 +107,10 @@ class Slider {
         path.classList.add(pathClass);
         path.setAttribute('d', this.describeArc(this.cx, this.cy, radius, 0, angle));
         path.style.stroke = color;
+        path.style.opacity = opacity ? opacity : 1
         path.style.strokeWidth = this.arcFractionThickness;
         path.style.fill = 'none';
-        path.setAttribute('stroke-dasharray', this.arcFractionLength + ' ' + singleSpacing);
+        if(dash) path.setAttribute('stroke-dasharray', this.arcFractionLength + ' ' + singleSpacing);
         group.appendChild(path);
     }
 
@@ -141,8 +142,8 @@ class Slider {
      * Create legend UI on init
      * 
      */
-    createLegendUI(expName,list,color, sliderId) {
-
+    createLegendUI(expName,list,color, sliderId, intVal) {
+        console.log("intVal", intVal)
         let listNum = list == "#list1_svg" ? "#list1_legend" : "#list2_legend";
 
         const listHolder = document.querySelector(listNum);
@@ -153,7 +154,7 @@ class Slider {
 
         let firstSpan = document.createElement('span');
             firstSpan.classList.add('val');
-            firstSpan.innerHTML = "$ 0";
+            firstSpan.innerHTML = `$ ${intVal}`;
 
         let secondSpan = document.createElement('span');
             secondSpan.classList.add('name');
@@ -207,7 +208,6 @@ class Slider {
         const targetLegend = document.querySelector(`span[slider_id="${targetSlider}"]`);
         const targetVal = targetLegend.querySelector('.val');
         const currentSlider = allSliders.find(slider => slider.s_id === targetSlider);
-
 
         const currentSliderRange = currentSlider.max - currentSlider.min;
         let currentValue = currentAngle / this.tau * currentSliderRange;

@@ -10,9 +10,7 @@
 let allSliders = [
 ]
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 function generateSliderId(){
     const id = Math.random().toString(16).slice(2);
@@ -74,7 +72,7 @@ function handleName(name){
 
 function buildSlider(opt){
     const slider = new Slider(opt)
-    slider.draw()
+    slider.init()
     allSliders.push(opt);
 }
 
@@ -90,6 +88,7 @@ function getSliderSettings(e){
         step: parseInt(e.target.exp_step.value),
         radius: parseInt(e.target.exp_rad.value),
         list: e.target.exp_cont.value,
+        initialValue: 0,
         s_id: generateSliderId()       
     };
 

@@ -11,6 +11,7 @@ INSERTING A NEW EXPENSE:
 1. Click on the "+ New Expense" button located on the left-hand side. A form will appear.
 2. Fill in the expense properties and select the list where you want the expense to be saved.
 3. Press the "Add Expense" button to add the expense.
+4. MOBILE app can display only 4 sliders!
 
 DELETING AN EXPENSE:
 

@@ -79,18 +79,20 @@ function evalSettings(opt){
     }
 
     // Single list can display max 4 expenses
-    if(s.list == opt.list){
-        if(s.list.length == 4 && isMobile){
-            evalResult.msg.push(" - List Full");
-            evalResult.res = false;
-            return evalResult;
-        }
-    }
+    
 
     opt.radius = (opt.radius > maxRadius) ? maxRadius : opt.radius
 
     // Check if Expense name, radius or color already exist
     allSliders.forEach(s =>{
+        
+        if(s.list == opt.list){
+            if(s.list.length == 4 && isMobile){
+                evalResult.msg.push(" - List Full");
+                evalResult.res = false;
+                return evalResult;
+            }
+        }
         if(s.list == opt.list && s.expenseName == opt.expenseName) {
             evalResult.msg.push(" - Expense already exists");
             evalResult.res = false;

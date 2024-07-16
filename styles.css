@@ -3,9 +3,10 @@ body {
     height: 100vh; 
     margin: 0;
     padding: 20px 20px; 
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-weight: 200;
     display: flex;
+
     /* Remove scroll bar */
     overflow: hidden;  
 }
@@ -24,10 +25,12 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    background: rgba(255, 255, 255, 0.27);
+    backdrop-filter: blur(9.5px);
+    -webkit-backdrop-filter: blur(9.5px);
 }
 
 .sidenav a {
@@ -49,11 +52,6 @@ body {
     right: 5px;
     font-size: 36px;
     margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
 }
 
 /* MAIN DISPLAY STYLES */
@@ -78,7 +76,7 @@ body {
     width: 200px;
     cursor: pointer;
     text-align: center;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-weight: 200;
     letter-spacing: 3px;
     background-color: rgba(194, 210, 205, 0.3); 
@@ -114,7 +112,7 @@ body {
 }
 
 .list-container h2{
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 2.2rem;
 }
@@ -166,8 +164,6 @@ body {
 
 input{
     padding: 6px 12px;
-    background: rgb(31, 32, 35);
-    border: 1px solid rgb(60, 63, 68);
     border-radius: 4px;
     font-size: 13px;
     color: rgb(247, 248, 248);
@@ -175,7 +171,16 @@ input{
     appearance: none;
     transition: border 0.15s ease 0s;
     width: 200px;
+    background: rgba(255, 255, 255, 0.27);
+    border: 0px
 }
+
+input::placeholder{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+}
+
+
 
 select{
     padding: 6px 12px;
@@ -191,19 +196,18 @@ select{
 }
 
 
-
 button{
-    background: rgb(31, 32, 35);
-    border: 1px solid rgb(60, 63, 68);
+    background: rgba(255, 255, 255, 0.27);
     border-radius: 4px;
     font-size: 13px;
-    color: rgb(162, 162, 162);
+    color: rgb(112, 112, 112);
     height: 20px;
     appearance: none;
     transition: border 0.15s ease 0s;
     width: 200px;
     height: 40px;
     cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 button:hover{
     border: 1px solid cyan;
@@ -247,6 +251,17 @@ li{
     font-weight: 600;
     color: rgb(63, 63, 63);
     list-style: none;
+}
+
+#exp_cont{
+    color: rgb(137, 137, 137);
+    backdrop-filter: blur(9.5px);
+    -webkit-backdrop-filter: blur(9.5px);
+    background: rgba(255, 255, 255, 0.27);
+    border: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    
 }
 
 .exp_box{
@@ -294,6 +309,12 @@ li{
         background: transparent;
     }
 
+    select {
+        -webkit-appearance: none; /* For iOS */
+        -moz-appearance: none; /* For Firefox */
+        appearance: none;
+    }
+
     .sidenav-container{
         text-align: center;
         margin-bottom: auto;
@@ -306,6 +327,10 @@ li{
     #list2_svg{
         display: flex;
         margin: 0 auto;
+    }
+
+    .slider-list{
+        height: 130vw;
     }
 
     .slider__data{
@@ -348,7 +373,6 @@ li{
         margin-bottom: 0;
         width: 100vw;
         border-radius: 0;
-
     }
 
     .delete_btn{
@@ -357,7 +381,8 @@ li{
     }
 
     input {
-        font-size: 25px;
+        font-size: 20px;
+        font-weight: 200;
         height: 59px;
         width: 85vw;
         color: black;
@@ -366,6 +391,17 @@ li{
         background: rgba(255, 255, 255, 0.27);
         border: 1px solid white;
         border-radius: 10px;
+    }
+
+    input::placeholder{
+        font-family: 'Roboto', sans-serif;
+        font-weight: 200;
+    }
+
+    select {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 200;
+        text-align: center;
     }
 
     #exp_cont{
@@ -390,7 +426,7 @@ li{
         border: 0;
     }
     
-    #mySidenav{
+    .sidenav{
         background: rgba(255, 255, 255, 0.27);
         backdrop-filter: blur(9.5px);
         -webkit-backdrop-filter: blur(9.5px);

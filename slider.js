@@ -2,30 +2,32 @@ class Slider {
 
     constructor(options) {
         
-        this.list = options.list;                                   // Slider list
-        this.container = document.querySelector(this.list);         // Slider container
-        this.sliderWidth = !isMobile ? 700 : 400;                                     // Slider width
-        this.sliderHeight = !isMobile ? 600 : 400;                                    // Slider length
-        this.cx = this.sliderWidth / 2;                             // Slider center X coordinate
-        this.cy = this.sliderHeight / 2;                            // Slider center Y coordinate
-        this.tau = 2 * Math.PI;                                     // Tau constant
-        this.options = options;                                     // Sliders array with opts for each slider
-        this.arcFractionSpacing = 0.65;                             // Spacing between arc fractions
-        this.arcFractionLength = 10;                                // Arc fraction length
-        this.arcFractionThickness = !isMobile ? 30 : 25;                             // Arc fraction thickness
-        this.arcBgFractionColor = 'rgb(200,200,200)';               // Arc fraction color for background slider
-        this.handleFillColor = '#fff';                              // Slider handle fill color
-        this.handleStrokeColor = 'silver';                          // Slider handle stroke color
-        this.handleStrokeThickness = 2;                             // Slider handle stroke thickness    
-        this.mouseDown = false;                                     // Is mouse down
-        this.activeSlider = null;                                   // Stores active (selected) slider
-        this.sliderId = options.s_id;                               // Current Slider ID
+        this.list = options.list;                                           // Slider list
+        this.container = document.querySelector(this.list);                 // Slider container
+        this.sliderWidth = !isMobile ? 700 : 350;                           // Slider holder width
+        this.sliderHeight = !isMobile ? 600 : 350;                          // Slider holder length
+        this.cx = this.sliderWidth / 2;                                     // Slider circle center X coordinate
+        this.cy = this.sliderHeight / 2;                                    // Slider circle center Y coordinate
+        this.tau = 2 * Math.PI;                                             // Tau constant
+        this.options = options;                                             // Sliders array with opts for each slider
+        this.arcFractionSpacing = 0.65;                                     // Spacing between arc fractions
+        this.arcFractionLength = 10;                                        // Arc fraction length
+        this.arcFractionThickness = !isMobile ? 25 : 20;                    // Arc fraction thickness
+        this.arcBgFractionColor = 'rgb(200,200,200)';                       // Arc fraction color for background slider
+        this.handleFillColor = '#fff';                                      // Slider handle fill color
+        this.handleStrokeColor = 'silver';                                  // Slider handle stroke color
+        this.handleStrokeThickness = 2;                                     // Slider handle stroke thickness    
+        this.mouseDown = false;                                             // Is mouse down
+        this.activeSlider = null;                                           // Stores active (selected) slider
+        this.sliderId = options.s_id;                                       // Current Slider ID
     }
+
 
     /**
      * Generate sliders on init
      * 
      */
+
     init() {
 
         // Create legend UI
@@ -143,7 +145,6 @@ class Slider {
      * 
      */
     createLegendUI(expName,list,color, sliderId, intVal) {
-        console.log("intVal", intVal)
         let listNum = list == "#list1_svg" ? "#list1_legend" : "#list2_legend";
 
         const listHolder = document.querySelector(listNum);
@@ -214,8 +215,6 @@ class Slider {
         const numOfSteps =  Math.round(currentValue / currentSlider.step);
 
         currentValue = currentSlider.min + numOfSteps * currentSlider.step;
-
-        console.log("currentValue", currentValue)
 
         targetVal.innerText = "$ " + currentValue;
     }

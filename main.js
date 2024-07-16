@@ -8,13 +8,17 @@
  */
 
 let allSliders = [],
-    isMobile = false;
+    isMobile = false
+    maxRadius = 250;
+    minRadius = 30;
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 function checkIfMobile(){
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const userAgent = navigator.userAgent || window.opera;
+
     // Check for mobile devices
     if (/android/i.test(userAgent)) {
         isMobile = true;
@@ -29,6 +33,14 @@ function checkIfMobile(){
         isMobile = true;
     }
 
+    if(isMobile){
+        let sliderSvgHolder = document.querySelectorAll('svg');
+        sliderSvgHolder.forEach(hldr =>{
+            hldr.setAttribute("height", 350)
+            hldr.setAttribute("width", 350)
+        })
+        maxRadius = 160;
+    }
 
 }
 
@@ -66,6 +78,17 @@ function evalSettings(opt){
         msg: []
     }
 
+    // Single list can display max 4 expenses
+    if(s.list == opt.list){
+        if(s.list.length == 4 && isMobile){
+            evalResult.msg.push(" - List Full");
+            evalResult.res = false;
+            return evalResult;
+        }
+    }
+
+    opt.radius = (opt.radius > maxRadius) ? maxRadius : opt.radius
+
     // Check if Expense name, radius or color already exist
     allSliders.forEach(s =>{
         if(s.list == opt.list && s.expenseName == opt.expenseName) {
@@ -81,7 +104,6 @@ function evalSettings(opt){
             evalResult.res = false;
         }
     })
-
 
     return evalResult;
 }
@@ -160,15 +182,6 @@ function closeNav() {
 
 window.addEventListener("DOMContentLoaded", ()=>{
     checkIfMobile()
-    
-    if(isMobile){
-        let sliderSvgHolder = document.querySelectorAll('svg');
-        sliderSvgHolder.forEach(hldr =>{
-            hldr.setAttribute("height", 400)
-            hldr.setAttribute("width", 400)
-        })
-    }
-
 
     initSliders.forEach(opt => buildSlider(opt));
 })

@@ -65,19 +65,18 @@ body {
 /* LIST SELECT STYLES */
 
 #list_select{
-    margin-bottom: 1rem;
-    border-radius: 20px;
-    border: none;
     font-size: 2rem;
-    color: rgb(0, 0, 0);
-    height: 60px;
-    appearance: none;
-    transition: border 0.15s ease 0s;
-    width: 200px;
-    cursor: pointer;
-    text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    height: 60px;
+    width: 200px;
+    margin-bottom: 1rem;
+    border: none;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    cursor: pointer;
     letter-spacing: 3px;
     background-color: rgba(194, 210, 205, 0.3); 
     border-radius: 20px;
@@ -87,9 +86,7 @@ body {
 /* MAIN CONTAINER (slider list, expense list, Sliders) */
 
 .main-container{
-    /* background-color: rgba(194, 210, 205, 0.3);  */
     border-radius: 30px;
-    /* backdrop-filter: blur(200px); */
     background: rgba(255, 255, 255, 0.27);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(9.5px);
@@ -100,6 +97,9 @@ body {
 .slider-list{
     width: 1180px; 
     height: 600px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 /* expense list */
@@ -117,24 +117,14 @@ body {
     font-size: 2.2rem;
 }
 
-#list1 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-#list2 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
 
 #list2-container{
     display: none;
 }
 
-
+.val {
+    font-weight: 900;
+}
 
 .slider__data{       
     margin-left: auto;
@@ -180,8 +170,6 @@ input::placeholder{
     font-weight: 200;
 }
 
-
-
 select{
     padding: 6px 12px;
     background: rgb(31, 32, 35);
@@ -194,7 +182,6 @@ select{
     transition: border 0.15s ease 0s;
     width: 225px;
 }
-
 
 button{
     background: rgba(255, 255, 255, 0.27);
@@ -320,17 +307,18 @@ li{
         margin-bottom: auto;
     }
 
-    #list1_svg{
+    .svg-holder{
         display: flex;
-        margin: 0 auto;
-    }
-    #list2_svg{
-        display: flex;
-        margin: 0 auto;
+        margin: 0 auto; 
     }
 
     .slider-list{
         height: 130vw;
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100vw;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
     }
 
     .slider__data{
@@ -351,21 +339,6 @@ li{
     .exp_list{
         font-size: 1.2rem;
         gap: 1.5rem
-    }
-
-    #list1{
-        display: flex;
-        flex-direction: column-reverse;
-        width: 100vw;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-    }
-    #list2{
-        display: flex;
-        flex-direction: column-reverse;
-        width: 100vw;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
     }
 
     #list_select{
@@ -431,6 +404,5 @@ li{
         backdrop-filter: blur(9.5px);
         -webkit-backdrop-filter: blur(9.5px);
     }
-
 
   }

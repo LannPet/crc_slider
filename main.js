@@ -85,7 +85,7 @@ function evalSettings(opt){
 
     // Check if Expense name, radius or color already exist
     allSliders.forEach(s =>{
-        
+
         if(s.list == opt.list){
             if(s.list.length == 4 && isMobile){
                 evalResult.msg.push(" - List Full");
@@ -185,5 +185,8 @@ function closeNav() {
 window.addEventListener("DOMContentLoaded", ()=>{
     checkIfMobile()
 
-    initSliders.forEach(opt => buildSlider(opt));
-})
+    initSliders.forEach(opt => {
+        if(evalSettings(opt)) buildSlider(opt);
+    })
+             
+});

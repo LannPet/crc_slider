@@ -15,8 +15,6 @@ body {
     gap: 12rem;
 }
 
-
-
 /* SIDE NAVIGATION STYLES */
 
 .sidenav {
@@ -145,22 +143,17 @@ body {
 }
 
 
-
-
-
-
-
-  .new-expense{
+.new-expense{
     font-size:20px;
     cursor:pointer;
     transition: 200ms;
     letter-spacing:8px;
-  }
+}
 
-  .new-expense:hover{
+.new-expense:hover{
     font-size: 21px;
     box-shadow: #111;
-  }
+}
 
 
 .form-container{
@@ -269,6 +262,8 @@ li{
     gap: 1.8rem;
     font-size: 2rem;
     align-items: baseline;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
 .delete_btn{
@@ -278,3 +273,128 @@ li{
     cursor: pointer;
 }
 
+/* MOBILE STYLES */
+
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    .main-flexbox{
+        flex-direction: column-reverse;
+        gap: 11rem;
+    }
+
+    .main-container{
+        border: none;
+        backdrop-filter: none;
+        box-shadow: none;
+        border-radius: 0px;
+        background: transparent;
+    }
+
+    .sidenav-container{
+        text-align: center;
+        margin-bottom: auto;
+    }
+
+    #list1_svg{
+        display: flex;
+        margin: 0 auto;
+    }
+    #list2_svg{
+        display: flex;
+        margin: 0 auto;
+    }
+
+    .slider__data{
+        margin: 0 auto;
+    }
+
+    .main-display{
+        gap: 2rem;
+    }
+
+    .expense-legend{
+        margin-left: 0px;
+        margin-top: 0px;
+        padding: 0px 30px;
+        min-height: 100vw;
+    }
+
+    .exp_list{
+        font-size: 1.2rem;
+        gap: 1.5rem
+    }
+
+    #list1{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100vw;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+    }
+    #list2{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100vw;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+    }
+
+    #list_select{
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        width: 100vw;
+        border-radius: 0;
+
+    }
+
+    .delete_btn{
+        margin-left: auto;
+        font-size: 1.8rem;
+    }
+
+    input {
+        font-size: 25px;
+        height: 59px;
+        width: 85vw;
+        color: black;
+        backdrop-filter: blur(9.5px);
+        -webkit-backdrop-filter: blur(9.5px);
+        background: rgba(255, 255, 255, 0.27);
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+
+    #exp_cont{
+        font-size: 25px;
+        height: 59px;
+        width: 91vw;
+        color: rgb(112, 112, 112);
+        backdrop-filter: blur(9.5px);
+        -webkit-backdrop-filter: blur(9.5px);
+        background: rgba(255, 255, 255, 0.27);
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+
+    .input-container button {
+        width: 85vw;
+        height: 59px;
+        font-size: 25px;
+        color: rgb(112, 112, 112);
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        border: 0;
+    }
+    
+    #mySidenav{
+        background: rgba(255, 255, 255, 0.27);
+        backdrop-filter: blur(9.5px);
+        -webkit-backdrop-filter: blur(9.5px);
+    }
+
+
+  }

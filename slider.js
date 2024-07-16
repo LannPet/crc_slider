@@ -4,15 +4,15 @@ class Slider {
         
         this.list = options.list;                                   // Slider list
         this.container = document.querySelector(this.list);         // Slider container
-        this.sliderWidth = 700;                                     // Slider width
-        this.sliderHeight = 600;                                    // Slider length
+        this.sliderWidth = !isMobile ? 700 : 400;                                     // Slider width
+        this.sliderHeight = !isMobile ? 600 : 400;                                    // Slider length
         this.cx = this.sliderWidth / 2;                             // Slider center X coordinate
         this.cy = this.sliderHeight / 2;                            // Slider center Y coordinate
         this.tau = 2 * Math.PI;                                     // Tau constant
         this.options = options;                                     // Sliders array with opts for each slider
         this.arcFractionSpacing = 0.65;                             // Spacing between arc fractions
         this.arcFractionLength = 10;                                // Arc fraction length
-        this.arcFractionThickness = 30;                             // Arc fraction thickness
+        this.arcFractionThickness = !isMobile ? 30 : 25;                             // Arc fraction thickness
         this.arcBgFractionColor = 'rgb(200,200,200)';               // Arc fraction color for background slider
         this.handleFillColor = '#fff';                              // Slider handle fill color
         this.handleStrokeColor = 'silver';                          // Slider handle stroke color

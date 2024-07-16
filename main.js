@@ -7,10 +7,30 @@
  * Global Variables
  */
 
-let allSliders = [
-]
+let allSliders = [],
+    isMobile = false;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function checkIfMobile(){
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    // Check for mobile devices
+    if (/android/i.test(userAgent)) {
+        isMobile = true;
+    }
+
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        isMobile = true;
+    }
+
+    // Additional checks for other mobile devices
+    if (/mobile/i.test(userAgent)) {
+        isMobile = true;
+    }
+
+
+}
 
 function generateSliderId(){
     const id = Math.random().toString(16).slice(2);
@@ -124,7 +144,7 @@ function selectedList(e){
 }
 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.width = !isMobile ? "250px" : "100vw" ;
     document.querySelectorAll('.input-container').forEach(e => e.style.opacity = "1")
 }
   
@@ -139,5 +159,16 @@ function closeNav() {
  */
 
 window.addEventListener("DOMContentLoaded", ()=>{
+    checkIfMobile()
+    
+    if(isMobile){
+        let sliderSvgHolder = document.querySelectorAll('svg');
+        sliderSvgHolder.forEach(hldr =>{
+            hldr.setAttribute("height", 400)
+            hldr.setAttribute("width", 400)
+        })
+    }
+
+
     initSliders.forEach(opt => buildSlider(opt));
 })

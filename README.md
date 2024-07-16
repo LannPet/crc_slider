@@ -4,6 +4,12 @@ NOTE: THIS APP IS NOT A FINISHED PRODUCT; THEREFORE, BUGS AND ERRORS MAY BE PRES
 
 The app allows users to input and display various expenses through an expense input form. Expenses are displayed on the right-hand side of the interface. Each expense has a unique color and name, accompanied by a circular slider that can be used to adjust the expense value.
 
+IMPORTANT: 
+  - App does not use a database to save slider info. therefore, everything resets on reload,
+  - Mobile view can display and store only 4 expenses on each list,
+  - Mobile view works on displays such as: iphone xr, 12, 14 pro, S20 ultra, pixel 7,
+  - Browser view tested on macbook pro 16 M3 and monitor 1920 x 1080.
+
 HOW TO USE:
 
 INSERTING A NEW EXPENSE:
